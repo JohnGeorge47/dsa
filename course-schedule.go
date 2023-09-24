@@ -1,5 +1,7 @@
 package dsalgo
 
+//Problem:https://leetcode.com/problems/course-schedule/description/
+
 /*
 Apparently its a topological map i had no clue what it is
 We first need to understand that this is a graph problem and any
