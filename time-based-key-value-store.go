@@ -9,9 +9,9 @@ type KeyNode struct {
 	timeVal []int
 }
 
-func Constructor() TimeMap {
-	return TimeMap{ValueMap: make(map[string]*KeyNode)}
-}
+//func Constructor() TimeMap {
+//	return TimeMap{ValueMap: make(map[string]*KeyNode)}
+//}
 
 func findClosest(arr []int, target int) int {
 	l := 0
