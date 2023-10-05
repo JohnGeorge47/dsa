@@ -9,6 +9,9 @@ func spiralOrder(matrix [][]int) []int {
 }
 
 // Brute force yay!!!
+/*
+Saw a one line python solution but it was too much for poor me
+*/
 func spiralDfs(matrix [][]int, result *[]int, i, j int, traversal string) {
 	if i < 0 || i >= len(matrix) || j < 0 || j >= len(matrix[i]) || matrix[i][j] == 10000 {
 		return
