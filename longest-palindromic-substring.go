@@ -11,20 +11,6 @@ so there are two cases here
     a  b  a   its a palindrome when left and right are equal
  2. Even we move from pointer on one side and pointer +1 on other
 */
-func longestPalindrome(s string) string {
-	palinMax := ""
-	for i, _ := range s {
-		for i3, _ := range s {
-			//if isPalindrome(s[i:i3]) {
-			//	if len(s[i:i3]) > len(palinMax) {
-			//		palinMax = s[i:i3]
-			//	}
-			//}
-		}
-	}
-	return palinMax
-}
-
 func longestPalindrome2(s string) string {
 	palinMax := ""
 	for i, _ := range s {
