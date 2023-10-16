@@ -7,7 +7,7 @@ func groupAnagrams(strs []string) [][]string {
 	angramMap := make(map[string][]string)
 	for _, str := range strs {
 		charArray := []rune(str)
-		sort.SliceIsSorted(charArray, func(i, j int) bool {
+		sort.Slice(charArray, func(i, j int) bool {
 			return charArray[i] < charArray[j]
 		})
 		angramMap[string(charArray)] = append(angramMap[string(charArray)], str)
