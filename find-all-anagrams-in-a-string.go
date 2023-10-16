@@ -8,4 +8,5 @@ fyi Found out you can compare entire array in go
 */
 func findAnagrams(s string, p string) []int {
 
+	return make([]int, 0)
 }
