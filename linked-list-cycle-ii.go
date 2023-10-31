@@ -1,6 +1,7 @@
 package dsalgo
 
 // https://leetcode.com/problems/linked-list-cycle-ii/
+
 func detectCycle(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return nil
