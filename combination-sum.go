@@ -1,5 +1,7 @@
 package dsalgo
 
+import "fmt"
+
 // https://leetcode.com/problems/combination-sum/
 /*
 eg: [2,3,6,7]
@@ -14,16 +16,18 @@ On one side we choose an element on other decision we dont choose that element n
          [2,2]   [2,3]    [7]   []
 */
 
-var result [][]int
-
 func combinationSum(candidates []int, target int) [][]int {
 	//We create an array of the current element
+	var result [][]int
 	currArray := make([]int, 0)
-	dfs(0, 0, target, currArray, candidates)
+	dfsbacktrackComb(0, 0, target, currArray, candidates, &result)
 	return result
 }
 
-func dfs(i, total, target int, currArray, candidates []int) {
+/*
+Memory limit exceeded
+*/
+func dfs(i, total, target int, currArray, candidates []int, result [][]int) {
 	//If the total is correct then we append to array result and return
 	if total == target {
 		result = append(result, currArray)
@@ -37,6 +41,27 @@ func dfs(i, total, target int, currArray, candidates []int) {
 		return
 	}
 	currArray = append(currArray, candidates[i])
-	dfs(i+1, total+candidates[i], target, currArray, candidates)
-	dfs(i, total, target, currArray[:len(currArray)-1], candidates)
+	dfs(i+1, total+candidates[i], target, currArray, candidates, result)
+	dfs(i, total, target, currArray[:len(currArray)-1], candidates, result)
+}
+
+/*
+We need to sort of do a better solution than continious recuriosn which exceeded mem
+*/
+func dfsbacktrackComb(idx, total, target int, currArray, candidates []int, result *[][]int) {
+	fmt.Println(currArray)
+	if total == target {
+		fmt.Println(target)
+		*result = append(*result, currArray)
+		return
+	}
+	if idx > len(candidates) {
+		return
+	}
+	if total > target {
+		return
+	}
+	for i := idx; i < len(candidates); i++ {
+		dfsbacktrackComb(i, total+candidates[i], target, append(append(make([]int, 0), currArray...), candidates[i]), candidates, result)
+	}
 }
