@@ -15,20 +15,7 @@ func kdistinctCharacters(s string, k int) {
 	right := 0
 	currMax := 0
 	for right < len(s) {
-		if v, ok := charMap[s[right]]; !ok {
-			charMap[s[right]] = 1
-		} else {
-			charMap[s[right]] = v + 1
-		}
-		for len(charMap) > k {
-			if v, ok := charMap[s[left]]; ok {
-				if v-1 == 0 {
-					delete(charMap, s[left])
-				} else {
-					charMap[s[left]] = v - 1
-				}
-			}
-			left = left + 1
+         charMap[s[right]]++
 		}
 		currMax = max(currMax, right-left+1)
 	}
