@@ -10,12 +10,12 @@ func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 		l1 := firstList[left]
 		l2 := secondList[right]
 		//Check if intervals are overlapping
-		if l1[1] > l2[0] && l2[1] > l1[0] {
+		if l1[1] >= l2[0] && l2[1] >= l1[0] {
 			val1 := max(l2[0], l1[0])
 			val2 := min(l1[1], l2[1])
 			result = append(result, []int{val1, val2})
 		}
-		if l1[1] > l2[1] {
+		if l2[1] > l1[1] {
 			left++
 		} else {
 			right++
